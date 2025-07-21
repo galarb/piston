@@ -1,12 +1,13 @@
 from piston import Piston
 from time import sleep
-mot = Piston(33, 32)
 
-try:
-    mot.motgo(100)
-    sleep(1)
-    mot.motgo(-100)
-    sleep(10)
-    mot.motgo(0)
-except Exception as e:
-    print("Error in motgo:", e)
+mot = Piston(32, 33)
+
+while True:
+    try:
+        speed = int(input("Enter speed (-100 to 100): "))
+        mot.motgo(speed)
+        sleep(1)
+    except ValueError:
+        print("Invalid input.")
+
